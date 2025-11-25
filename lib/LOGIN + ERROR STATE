@@ -1,0 +1,133 @@
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final username = TextEditingController();
+  final password = TextEditingController();
+
+  bool showError = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(25),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 80),
+            const Text(
+              "Hello",
+              style: TextStyle(fontSize: 34, fontWeight: FontWeight.bold),
+            ),
+            const Text(
+              "Again!",
+              style: TextStyle(
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue),
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              "Welcome back you've been missed",
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+            const SizedBox(height: 40),
+
+            // USERNAME
+            TextField(
+              controller: username,
+              decoration: InputDecoration(
+                labelText: "Username*",
+                errorText: showError ? "Invalid Username" : null,
+                border: const OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            // PASSWORD
+            TextField(
+              controller: password,
+              obscureText: true,
+              decoration: const InputDecoration(
+                labelText: "Password*",
+                border: OutlineInputBorder(),
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text("Remember me"),
+                Text("Forgot the password?"),
+              ],
+            ),
+
+            const SizedBox(height: 25),
+
+            // LOGIN BUTTON
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    showError = username.text.isEmpty;
+                  });
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                ),
+                child: const Text("Login"),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            const Center(child: Text("or continue with")),
+            const SizedBox(height: 15),
+
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(6)),
+                    child: const Center(child: Text("Facebook")),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        borderRadius: BorderRadius.circular(6)),
+                    child: const Center(child: Text("Google")),
+                  ),
+                )
+              ],
+            ),
+
+            const SizedBox(height: 20),
+            Center(
+              child: Text(
+                "don't have an account ? Sign Up",
+                style: TextStyle(color: Colors.blue.shade700),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
