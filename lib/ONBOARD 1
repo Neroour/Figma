@@ -1,0 +1,50 @@
+class Onboard1 extends StatelessWidget {
+  const Onboard1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const Onboard2()),
+          ),
+          child: Text(
+            "Kaabar",
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue.shade700,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+class Onboard1 extends StatelessWidget {
+  const Onboard1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => const Onboard2()),
+          ),
+          child: Text(
+            "Kaabar",
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue.shade700,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
